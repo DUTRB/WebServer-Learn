@@ -1,0 +1,9 @@
+# 定义变量
+scr = sub.o add.o mult.o div.o main.o
+target = app
+
+$(target):$(scr)
+		$(CC)  $^ -o $(target)
+
+%.o:%.c
+		$(CC) -c $< -o $@
