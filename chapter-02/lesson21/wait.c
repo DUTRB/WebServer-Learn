@@ -17,7 +17,7 @@ int main(){
 
             int ret = wait(NULL);
             if(ret == -1){
-                break;;
+                break;
             }
 
             printf("child die, pid = %d\n", getpid());
