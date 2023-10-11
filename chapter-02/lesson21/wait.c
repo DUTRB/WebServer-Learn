@@ -15,9 +15,21 @@ int main(){
         while(1){
             printf("parent, pid = %d\n", getpid());
 
-            int ret = wait(NULL);
+            int st;
+
+            int ret = wait(&st);
+
             if(ret == -1){
                 break;
+            }
+
+            if(WIFEXITED(st)){
+                //是否正常退出
+                printf("退出的状态码：%d\n", WEXITSTATUS(st));
+            }
+
+            if(WIFSIGNALED(st)){
+                printf("被哪个信号干掉了：%d\n", WTERMSIG(st));
             }
 
             printf("child die, pid = %d\n", getpid());
