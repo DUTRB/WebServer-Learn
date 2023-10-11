@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <sys/wait.h>
+#include <stdlib.h>
 
 int main(){
     pid_t pid;
@@ -34,17 +35,17 @@ int main(){
 
             printf("child die, pid = %d\n", getpid());
 
-            sleep(1);
+            sleep(1);   
         }
     }
     else if(pid == 0){
         while(1){
             printf("child, pid = %d\n", getpid());
             sleep(1);
-        }
+        }   
+        exit(0);    
+        
     }
-
-
 
     return 0;
 }
