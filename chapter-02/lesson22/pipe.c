@@ -19,35 +19,28 @@ int main(){
     {
         printf("I am parent process, pid = %d\n", getpid());
 
+        close(pipefd[1]);  //关闭写端
+
         char buf[1024] = {0};
         while(1){
             //从管道读取数据
             int len = read(pipefd[0], buf, sizeof(buf));
             printf("parent rev: %s, pid : %d\n", buf, getpid());
-
-            //向管道中写入数据
-            char *str = "write test";
-            write(pipefd[1], str, strlen(str));
-            sleep(1);
         }
     }
     else if(pid == 0){
         //子进程
         printf("    I am child process, pid = %d\n", getpid());
 
+        close(pipefd[0]);  //关闭读端
+
         char buf[1024] = {0};
         while(1){
             //往管道写入数据
             char *str = "   hello, I am child";
             write(pipefd[1], str, strlen(str));
-            sleep(1);
-
-            //从管道读取数据
-            int len = read(pipefd[0], buf, sizeof(buf));
-            printf("    child pecv: %s, pid = %d\n", buf, getpid());
         }
 
     }
-
     return 0;
 }
