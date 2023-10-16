@@ -37,7 +37,8 @@ int main(){
             int len = read(pipefd[0], buf, sizeof(buf));
             printf("len: %d\n", len);
             printf("parent rev: %s, pid : %d\n", buf, getpid());
-            sleep(2);
+            memset(buf, 0, 1024);
+            sleep(1);
         }
     }
     else if(pid == 0){
