@@ -12,7 +12,7 @@ int main(){
     //1. 判断文件是否存在
     int ret = access("fifo1", F_OK);
     if(ret == -1){
-        printf("有名管道文件不存在，需要创建有名管道1。");
+        printf("有名管道文件不存在，需要创建有名管道1。\n");
         ret = mkfifo("fifo1", 0664);
         if(ret == -1){
             perror("mkfifo");
@@ -21,7 +21,7 @@ int main(){
     }
     ret = access("fifo2", F_OK);
     if(ret == -1){
-        printf("有名管道文件不存在，需要创建有名管道2。");
+        printf("有名管道文件不存在，需要创建有名管道2。\n");
         ret = mkfifo("fifo2", 0664);
         if(ret == -1){
             perror("mkfifo");
@@ -34,14 +34,14 @@ int main(){
         perror("open");
         exit(0);
     }
-    printf("打开fifo1成功,等待读取...");
+    printf("打开fifo1成功,等待读取...\n");
     //3. 以只写的方式打开fifo2
     int fdw = open("fifo2", O_WRONLY);
     if(fdw == -1){
         perror("open");
         exit(0);
     }
-    printf("打开fifo2成功,等待写入...");
+    printf("打开fifo2成功,等待写入...\n");
 
     //4. 循环的读写数据
     char buf[128];
@@ -53,7 +53,7 @@ int main(){
             perror("read");
             break;
         }
-        printf("buf: %s", buf);
+        printf("- A: %s\n", buf);
 
         memset(buf, 0, 128);
         //获取标准输入的数据
