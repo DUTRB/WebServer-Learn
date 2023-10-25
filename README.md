@@ -15,7 +15,6 @@
 > 此外课程的其他资料都在文件夹<soure_code>中，也再次感谢上面那位博客博主分享的Gitee资料链接。
 
 ## 第二章 Linux多进程开发
-[博主笔记](https://blog.csdn.net/qq_53099212/article/details/132551062)
 
 23年10月6日 开始第二章学习
 
