@@ -9,13 +9,14 @@
 
 ![第一章总结](Images/%E7%AC%AC%E4%B8%80%E7%AB%A0.drawio.png)
 
-[chap01_Note个人知识回顾笔记](/chapter-01/chap01_Note.md)
 
 此外还找到了一个老哥在CSDN上面记得[博客笔记](https://blog.csdn.net/qq_53099212/article/details/132452987?spm=1001.2014.3001.5502)，比较详细。
 
 > 此外课程的其他资料都在文件夹<soure_code>中，也再次感谢上面那位博客博主分享的Gitee资料链接。
 
 ## 第二章 Linux多进程开发
-[笔记链接](https://blog.csdn.net/qq_53099212/article/details/132551062)
+[博主笔记](https://blog.csdn.net/qq_53099212/article/details/132551062)
 
 23年10月6日 开始第二章学习
+
+[第二章 个人笔记](https://bigbobro.notion.site/8c264171d8084df799ad36ad4cb442de?pvs=4)
