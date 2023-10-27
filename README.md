@@ -16,6 +16,6 @@
 
 ## 第二章 Linux多进程开发
 
-23年10月6日 开始第二章学习
+23年10月6日 --- 10月27日
 
 [第二章 个人笔记](https://bigbobro.notion.site/8c264171d8084df799ad36ad4cb442de?pvs=4)
