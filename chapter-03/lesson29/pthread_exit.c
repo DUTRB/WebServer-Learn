@@ -5,7 +5,7 @@
 
 void * callback(void * arg){
     printf("child threadID : %ld\n", pthread_self());
-    return NULL;
+    return NULL; //等价与pthread_exit(NULL)
 
 }
 
@@ -23,6 +23,7 @@ int main(){
     for(int i = 0; i < 5; i++){
         printf("%d\n", i);
     }
+    //此时的tid应该与子线程函数中的threadID一致
     printf("tid: %ld, main threadID : %ld\n", tid, pthread_self());
     
     //让主线程退出
