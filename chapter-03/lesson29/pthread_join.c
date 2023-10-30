@@ -3,11 +3,13 @@
 #include <string.h>
 #include <unistd.h>
 
+int value = 10;
+
 void * callback(void * arg){
     printf("child threadID : %ld\n", pthread_self());
     //sleep(3);
     //return NULL; //等价与pthread_exit(NULL)
-    int value = 10;
+    
     pthread_exit((void *)&value);
 }
 
