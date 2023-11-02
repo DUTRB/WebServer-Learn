@@ -6,7 +6,7 @@
 
 //创建共享数据
 int num = 1;
-pthread_mutex_t mutex;
+//pthread_mutex_t mutex;
 //创建读写锁
 pthread_rwlock_t rwlock;
 
