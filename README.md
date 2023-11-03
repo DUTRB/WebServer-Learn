@@ -15,12 +15,12 @@
 
 ## 第二章 Linux多进程开发
 
-23年10月6日 --- 10月27日
+23年10月6日 --- 10月27日 完结
 
 [第二章 个人笔记](https://bigbobro.notion.site/8c264171d8084df799ad36ad4cb442de?pvs=4)
 
 ## 第三章 Linux多线程开发
 
-23年10月28日 --- 
+23年10月28日 --- 11月3日 完结
 
 [第三章 个人笔记](https://bigbobro.notion.site/Linux-f697a23750c4470eaabfcd155ecf8156?pvs=4)
