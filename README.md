@@ -24,3 +24,9 @@
 23年10月28日 --- 11月3日 完结
 
 [第三章 个人笔记](https://bigbobro.notion.site/Linux-f697a23750c4470eaabfcd155ecf8156?pvs=4)
+
+## 第四章 Linux网络编程
+
+23年11月8日 --- 
+
+[第四章 个人笔记](https://bigbobro.notion.site/6804e1588a00423d8c30a2f6f796eff2?pvs=4)
