@@ -2,6 +2,8 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
+
 
 int main(){
 
@@ -28,7 +30,7 @@ int main(){
 
     //4. 接收客户端连接
     struct sockaddr_in clientaddr;
-    socklen_t len = sizeof(clientaddr);
+    int len = sizeof(clientaddr);
     int cfd = accept(lfd, (struct sockaddr *)&clientaddr, &len);
     if(cfd == -1){
         perror("accept");
@@ -42,12 +44,12 @@ int main(){
 
     //5. 获取客户端数据
     char recvBuf[1024] = {0};
-    int len = read(cfd, recvBuf, sizeof(recvBuf));
-    if(len == -1){
+    int num = read(cfd, recvBuf, sizeof(recvBuf));
+    if(num == -1){
         perror("read");
         exit(-1);
     }else if(len > 0){
-        printf("recv client data: %d\n");
+        printf("recv client data: %s\n", recvBuf);
     }else if(len == 0){ //客户端断开连接
         printf("client closed...");
     }
