@@ -13,7 +13,7 @@ int main(){
     //2. 绑定
     struct sockaddr_in saddr;
     saddr.sin_family = AF_INET;
-    inet_pton(AF_INET, "192.168.160.128", saddr.sin_addr.s_addr);
+    inet_pton(AF_INET, "192.168.160.128", &saddr.sin_addr.s_addr);
     saddr.sin_port = htons(9999);
     int ret = bind(lfd, (struct sockaddr *)&saddr, sizeof(saddr));
     if(ret == -1){
