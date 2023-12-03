@@ -3,8 +3,33 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <signal.h>
+#include <wait.h>
+
+void recyleChild(int arg){
+    while(1){
+        int ret = waitpid(-1, NULL, WNOHANG);
+        if(ret == -1){
+            //所有子进程都被回收
+            break;
+        }else if(ret == 0){
+            //还有子进程活着
+            break;
+        }else if(ret > 0){
+            //被回收了
+            printf("子进程 %d 被回收了\n", ret);
+        }
+    }
+}
 
 int main(){
+
+    //注册信号捕捉
+    struct sigaction act;
+    act.sa_flags = 0;
+    sigemptyset(&act.sa_mask);
+    act.sa_handler = recyleChild;
+    sigaction(SIGCHLD, &act, NULL);
 
     //创建socket
     int lfd = socket(PF_INET, SOCK_STREAM, 0);
@@ -16,6 +41,7 @@ int main(){
     struct sockaddr_in saddr;
     saddr.sin_family = AF_INET;
     saddr.sin_port = htons(9999);
+    //inet_pton(AF_INET, "192.168.160.128", &saddr.sin_addr.s_addr);
     saddr.sin_addr.s_addr = INADDR_ANY;
 
     int ret = bind(lfd, (struct sockaddr *)&saddr, sizeof(saddr));
@@ -43,7 +69,7 @@ int main(){
         }
 
         //每一个连接进来，创建一个子进程跟客户通信
-        pid_t pid;
+        pid_t pid = fork();
         if(pid == 0){
             //子进程 获取客户端的信息
             char cliIp[16];
@@ -61,7 +87,7 @@ int main(){
                     perror("read");
                     exit(-1);
                 }else if(len > 0){
-                    printf("recv client data: %s\n", recvBuf);
+                    printf("recv client %s\n", recvBuf);
                 }else{
                     printf("client closed...");
                 }
@@ -69,8 +95,9 @@ int main(){
                 write(cfd, recvBuf, sizeof(recvBuf));
             }
             close(cfd);
+            exit(0);
         }
     }
-    closed(lfd);
+    close(lfd);
     return 0;
 }
