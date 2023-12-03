@@ -30,8 +30,6 @@ int main(){
         //给服务端发送数据
         write(fd, recvBuf, strlen(recvBuf));
         
-        sleep(1);
-
         int len = read(fd, recvBuf, sizeof(recvBuf));
         if(len == -1){
             perror("read");
@@ -43,6 +41,7 @@ int main(){
             break;
         }
 
+        sleep(1);
     }
     //关闭连接
     close(fd);
