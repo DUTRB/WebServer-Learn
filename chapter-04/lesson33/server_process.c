@@ -1,3 +1,4 @@
+#define _DEFAULT_SOURCE
 #include <stdio.h>
 #include <arpa/inet.h>
 #include <unistd.h>
