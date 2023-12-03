@@ -47,8 +47,6 @@ void * working(void * arg){
 
 int main(){
 
-
-
     //创建socket
     int lfd = socket(PF_INET, SOCK_STREAM, 0);
     if(lfd == -1){
