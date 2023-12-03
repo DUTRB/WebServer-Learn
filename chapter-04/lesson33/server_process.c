@@ -6,6 +6,8 @@
 #include <string.h>
 #include <signal.h>
 #include <wait.h>
+#include <errno.h>
+
 
 void recyleChild(int arg){
     while(1){
@@ -65,6 +67,9 @@ int main(){
         int len = sizeof(cliaddr);
         int cfd = accept(lfd, (struct sockaddr *)&cliaddr, &len);
         if(cfd == -1){
+            if(errno == EINTR){
+                continue;
+            }
             perror("accept");
             exit(-1);
         }
