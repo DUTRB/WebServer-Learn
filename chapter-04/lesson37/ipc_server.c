@@ -37,7 +37,7 @@ int main(){
             perror("recv");
             exit(-1);
         }else if(len == 0){
-            printf("client closed...");
+            printf("client closed...\n");
         }else{
             printf("client say : %s\n", buf);
             send(cfd, buf, len, 0);

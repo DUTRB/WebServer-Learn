@@ -25,7 +25,7 @@ int main(){
 
     struct sockaddr_un seraddr;
     seraddr.sun_family = AF_LOCAL;
-    strcpy(seraddr.sun_path, "server.sock");
+    strcpy(seraddr.sun_path, "client.sock");
     ret = connect(cfd, (struct sockaddr *)&seraddr, sizeof(seraddr));
     if(ret == -1){
         perror("connect");
@@ -45,7 +45,7 @@ int main(){
             perror("recv");
             exit(-1);
         }else if(len == 0){
-            printf("sercer closed...");
+            printf("sercer closed...\n");
         }else{
             printf("server say : %s\n", buf);
         }
